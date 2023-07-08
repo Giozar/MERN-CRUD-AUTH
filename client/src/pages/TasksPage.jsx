@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useTasks } from '../context/TasksContext';
-//import { TaskCard } from "../components/tasks/TaskCard";
-//import { ImFileEmpty } from "react-icons/im";
+import TaskCard from "../components/TaskCard";
 
 function TasksPage() {
     const { tasks, getTasks } = useTasks();
@@ -14,16 +13,15 @@ function TasksPage() {
         return (<h1>No tasks</h1>)
     }
 
-    return <div>
+    return (
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
         {
             tasks.map(task => (
-                <div key={task._id}>
-                    <h1> {task.title}</h1>
-                    <p>{task.description}</p>
-                </div>
+                <TaskCard task={task} key={task._id}/>
             ))
         }
     </div>
+    );
 
 
 

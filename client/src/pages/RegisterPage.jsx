@@ -14,7 +14,7 @@ function RegisterPage() {
         singup(values);
     })
     return (
-        <div className="bg-zinc-800 max-w-md p-10 rounded-md items-center justify-center">
+        <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
             <div className='bg-zinc-800 max-w-md w-fll p-10 rounded-md'>
                 {
                     registerErrors.map((error, i) => (
@@ -47,16 +47,15 @@ function RegisterPage() {
                         <p className="text-red-500"> password is required </p>
                     )}
 
-                    <button type="submit">Register</button>
+                    <button type="submit"
+                    className="bg-sky-500 text-white px-4 py-2 rounded-md my-2"
+                    >Register</button>
                 </form>
+                <p className='flex gap-x-2 justify-between'>
+                    Already have an account?{" "}
+                    <Link className='text-sky-500' to="/login">Login</Link>
+                </p>
             </div>
-
-
-            <p className='flex gap-x-2 justify-between'>
-                Already have an account?{" "}
-                <Link className='text-sky-500' to="/login">Login</Link>
-            </p>
-
         </div>
     );
 }
